@@ -24,20 +24,9 @@ import com.binovel.domain.Blog;
 public class FileUtil {
 
 	
-	public void getFile(){
-		Path path = Paths.get("E:", "linux常用命令.txt");
-		System.out.println(path.getNameCount());
-		System.out.println(path.getRoot());
-		System.out.println(path.getFileSystem());
+	public void getFile(String filepath){
 		try {
-			ArrayList<String> lit = new ArrayList();
-			lit.add("加油~");
-			lit.add("2￥%……%￥（*#￥*（&￥#*&￥#（*￥#）（");
-			Files.write(Paths.get("E:","张浩.txt"), lit, Charset.forName("gbk"),StandardOpenOption.APPEND);
-			
-			RandomAccessFile raf = new RandomAccessFile(((path.getRoot().toString())+(path.getFileName())), "r");
-			
-			
+			List<String> list= Files.readAllLines(Paths.get(filepath), Charset.forName("gbk"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,7 +44,7 @@ public class FileUtil {
 	}
 	
 	
-	public void createFile(String filename,Blog blog){
+	public void createFile(Blog blog){
 		
 		
 		//判断用户是不是已经有了自己的文件夹
@@ -78,7 +67,7 @@ public class FileUtil {
 			
 			Files.write(Paths.get(path), filecontext, Charset.forName("gbk"),StandardOpenOption.APPEND );
 			
-			
+		//	Files.write(Paths.get(point), filecontext, Charset.forName("gbk"),StandardOpenOption.APPEND)
 		} catch (IOException e) {
 			System.out.println("写入数据错误");
 			e.printStackTrace();
