@@ -64,6 +64,7 @@
     	<artifactId>spring-webmvc</artifactId>
     	<version>3.2.9.RELEASE</version>
     </dependency>
+
   </dependencies>
   <build>
     <finalName>LuceneTest</finalName>
