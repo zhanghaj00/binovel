@@ -19,7 +19,6 @@ public class UserController {
 	@RequestMapping("/searchlist") 
 	public String UserLoginS(){
 		
-		System.out.println("speclogin ------");
 		return "searchlist.jsp";
 		
 	}
