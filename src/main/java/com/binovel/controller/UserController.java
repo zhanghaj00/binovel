@@ -13,14 +13,14 @@ public class UserController {
 	public String UserLoginC(){
 		
 		System.out.println("commonlogin ------");
-		return "success.jsp";
+		return "login.jsp";
 		
 	}
 	@RequestMapping("/speclogin") 
 	public String UserLoginS(){
 		
 		System.out.println("speclogin ------");
-		return null;
+		return "success.jsp";
 		
 	}
 }

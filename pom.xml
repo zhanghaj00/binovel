@@ -8,6 +8,7 @@
   <name>LuceneTest Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+  
     <dependency>
     	<groupId>org.apache.lucene</groupId>
     	<artifactId>lucene-core</artifactId>
@@ -65,8 +66,23 @@
     	<version>3.2.9.RELEASE</version>
     </dependency>
 
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>jstl</artifactId>
+    	<version>1.2</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>LuceneTest</finalName>
+    <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.4</version>
+                
+            </plugin>
+        </plugins>
+    
   </build>
+
 </project>
