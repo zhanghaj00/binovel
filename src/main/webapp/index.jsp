@@ -36,24 +36,24 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">JJJ</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="">Project name</a>
+          <a class="navbar-brand" href="">张浩的小屋</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="http://localhost:8080/LuceneTest/user/commonlogin.html">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="http://localhost:8080/LuceneTest/user/commonlogin.html">主页</a></li>
+            <li><a href="#about">带开放</a></li>
+            <li><a href="#contact">我的联系方式</a></li>
           </ul>
           <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
               <input type="text" placeholder="输入你想要的内容" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Search</button>
+            <button type="submit" class="btn btn-success">搜索一下</button>
           </form>
         </div>
         <!--/.nav-collapse -->
@@ -63,8 +63,8 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <h1>后 会 无 期</h1>
+        <p class="lead">从小听了很多大道理，可依旧过不好这一生.</p>
       </div>
 
     </div><!-- /.container -->
