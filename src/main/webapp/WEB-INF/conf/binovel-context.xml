@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	   		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	   		http://www.springframework.org/schema/context
@@ -20,14 +21,12 @@
 	<!-- 配置注解驱动的Spring MVC Controller 的编程模型.注:次标签只在 Servlet MVC工作! -->
 	<mvc:annotation-driven />
 	<!-- 配置Jedis的 缓冲池 -->  
-	<bean id="JedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"  
-    p:maxActive="32"  
+	<bean id="JedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"    
     p:maxIdle="6"  
-    p:maxWait="15000"  
   	 p:minEvictableIdleTimeMillis="300000"  
     p:numTestsPerEvictionRun="3"  
     p:timeBetweenEvictionRunsMillis="60000"  
-    p:whenExhaustedAction="1">  
+    >  
 	</bean>  
 	<!-- 配置Jedis connection -->     
    <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"  
@@ -43,7 +42,7 @@
 	>
 	<property name="defaultSerializer">  
             <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>  
-        </property>  
+     </property>  
 	</bean>
 </beans>
 

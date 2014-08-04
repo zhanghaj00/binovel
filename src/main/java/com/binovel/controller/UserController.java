@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.binovel.dao.BlogDao;
 import com.binovel.dao.TestRedis;
 
 
@@ -14,6 +15,9 @@ public class UserController {
 
 	@Autowired
 	TestRedis redis;
+	
+	@Autowired
+	BlogDao blogDao;
 	@RequestMapping("/commonlogin") 
 	public String UserLoginC(){
 		
@@ -23,7 +27,7 @@ public class UserController {
 	}
 	@RequestMapping("/searchlist") 
 	public String UserLoginS(){
-		redis.getBlog();
+		blogDao.insertBlog();
 		return "searchlist.jsp";
 		
 	}

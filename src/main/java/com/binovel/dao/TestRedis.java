@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 public class TestRedis {
 
 	@Autowired
-	RedisTemplate redisTemplate;
+	private RedisTemplate redisTemplate;
 	
 	public void  getBlog(){
 		
@@ -17,6 +17,7 @@ public class TestRedis {
 		          
 		rt.opsForValue().set("zhang", "hao");  
 		          
+		
 		System.out.println(rt.opsForValue().get("zhang"));  
 
 	}
