@@ -122,6 +122,12 @@
     	<artifactId>jackson-mapper-asl</artifactId>
     	<version>1.9.9</version>
     </dependency>
+    <dependency>
+    	<groupId>tomcat</groupId>
+    	<scope>provided</scope> 
+    	<artifactId>servlet</artifactId>
+    	<version>4.0.6</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>LuceneTest</finalName>

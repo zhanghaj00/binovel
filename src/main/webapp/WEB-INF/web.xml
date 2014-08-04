@@ -1,8 +1,7 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
+<web-app  version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name>Archetype Created Web Application</display-name>
   <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -25,12 +24,39 @@
     </filter-mapping>  
   	
 --> 
+<!-- 编码问题 -->
+	<filter>  
+      <filter-name>CharacterEncodingFilter</filter-name>  
+      <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+      <init-param>  
+          <param-name>encoding</param-name>  
+          <param-value>GBK</param-value>  
+      </init-param>
+       <init-param>  
+           <param-name>forceEncoding</param-name>  
+           <param-value>true</param-value>  
+       </init-param>        
+    </filter>  
+    <filter-mapping>  
+     <filter-name>CharacterEncodingFilter</filter-name>  
+     <url-pattern>*</url-pattern>  
+    </filter-mapping> 
+ <!-- 全局配置文件路径 -->
+	<env-entry>
+		<env-entry-name>BnovelConfig</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>/app/binovel/conf/Bnovel.properties</env-entry-value>
+	</env-entry>
+
+
    <listener>
         <listener-class>
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
-    
+    <listener>
+    	<listener-class>com.binovel.listener.SystemInitListener</listener-class>
+    </listener>
     
     <servlet>
         <servlet-name>springmvc</servlet-name>

@@ -22,6 +22,8 @@
     <link href="../css/signin.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../css/jumbotron.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/blog.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../js/ie-emulation-modes-warning.js"></script>
@@ -44,17 +46,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="">张浩的小屋</a>
+          <a class="navbar-brand" href="${applicationScope['serverurl']}">张浩的小屋</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="http://localhost:8080/LuceneTest/user/commonlogin.html">主页君</a></li>
-            <li><a href="#about">我的简历</a></li>
-            <li><a href="#contact">我的联系方式</a></li>
+            <li class="active"><a href="${applicationScope['serverurl']}/user/commonlogin.html">主页君</a></li>
+     <li><a href="${applicationScope['serverurl']}/user/getblog.html">我的博客</a></li>
+                  <li><a href="#contact">我的联系方式</a></li>
           </ul>
-          <form class="navbar-form navbar-right" role="form">
+          <form class="navbar-form navbar-right" role="form" action="${applicationScope['serverurl']}/user/searchlist.html">
             <div class="form-group">
-              <input type="text" placeholder="输入你想要的内容" class="form-control">
+              <input type="text" placeholder="输入你想要的内容" class="form-control" name="key">
             </div>
             <button type="submit" class="btn btn-success">搜索一下</button>
           </form>
