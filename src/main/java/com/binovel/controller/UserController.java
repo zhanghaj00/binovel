@@ -23,7 +23,7 @@ public class UserController {
 	BlogDao blogDao;
 	@RequestMapping("/commonlogin") 
 	public String UserLoginC(){
-		
+		//提交成功后可以转向一个成功界面 或者用 redirect 防止重复提交
 		System.out.println("commonlogin ------");
 		return "login/login.jsp";
 		

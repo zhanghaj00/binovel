@@ -61,14 +61,19 @@
     </div>
 
     <div class="container">
-
-      <div class="starter-template">
-        <h1>后 会 无 期</h1>
-        <p class="lead">从小听了很多大道理，可依旧过不好这一生.</p>
+    <div class="starter-template" style="margin-right: 100px;float: right">
+        <h1>邮箱</h1>
+        <p class="lead">414080606@qq.com</p>
+        <h1>电话</h1>
+        <p class="lead">18635688270</p>
+        <h1>地址</h1>
+        <p class="lead">帝都</p>
       </div>
-
+    <div style=" padding: 200px 5px;float:left">
+    <canvas id="canvastree"></canvas>
+    </div>
     </div><!-- /.container -->
-	<canvas id="canvastree"></canvas>
+	
 
 
     <!-- Bootstrap core JavaScript
