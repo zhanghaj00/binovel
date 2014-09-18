@@ -44,5 +44,22 @@
             <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>  
      </property>  
 	</bean>
+	
+	
+	<!-- 配置JTA 数据源 -->
+	<!-- 配置atomikos的事务管理器 -->  
+    <bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager"  
+        init-method="init" destroy-method="close">  
+        <property name="forceShutdown" value="true" />  
+    </bean>  
+    <bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">  
+        <property name="transactionTimeout" value="300" />  
+    </bean>  
+    <!-- spring的JTA事务管理器 -->  
+    <bean id="springTransactionManager"  
+        class="org.springframework.transaction.jta.JtaTransactionManager">  
+        <property name="transactionManager" ref="atomikosTransactionManager" />  
+        <property name="userTransaction" ref="atomikosUserTransaction" />  
+    </bean>  
 </beans>
 

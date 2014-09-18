@@ -21,7 +21,7 @@ public class SystemInitListener implements ServletContextListener {
 	/* (non-Javadoc)
 	 * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.ServletContextEvent)
 	 */
-	@Override
+	
 	public void contextDestroyed(ServletContextEvent sce) {
 		
 
@@ -30,7 +30,7 @@ public class SystemInitListener implements ServletContextListener {
 	/* (non-Javadoc)
 	 * @see javax.servlet.ServletContextListener#contextInitialized(javax.servlet.ServletContextEvent)
 	 */
-	@Override
+	
 	public void contextInitialized(ServletContextEvent sce) {
 		ServletContext servletContext = sce.getServletContext();
 		servletContext.setAttribute("serverurl", ConfigUrl.SERVERURL);

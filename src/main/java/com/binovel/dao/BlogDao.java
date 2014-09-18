@@ -1,5 +1,6 @@
 package com.binovel.dao;
 
+import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,6 @@ public class BlogDao {
 	
 	public void insertBlog(){
 		
-		rt.setValueSerializer(new JacksonJsonRedisSerializer<Blog>(Blog.class));
 		Blog blog = new Blog();
 		blog.setAuthor("zhanhgoa");
 		blog.setContext("shide");
@@ -34,13 +34,23 @@ public class BlogDao {
 		this.getBlog(id);
 	}
 	
-	public void getBlog(String uuid){
+	public Blog getBlog(String title){
 		rt.setValueSerializer(new JacksonJsonRedisSerializer<Blog>(Blog.class));
-		
-		Blog blog = (Blog)rt.opsForValue().get(uuid);
-		
-		System.out.println(blog.getId());
-		System.out.println(blog.getAuthor());
-		System.out.println(blog.getContext());
+		Blog blog = (Blog)rt.opsForValue().get(title);
+		return blog;
 	}
+	
+	public void putBlog(String title,String postblog){
+		rt.setValueSerializer(new JacksonJsonRedisSerializer<Blog>(Blog.class));
+
+		Blog blog = new Blog();
+		blog.setCreateTime(new Date());
+		blog.setContext(postblog);
+		blog.setTitle(title);
+		blog.setAuthor("уе╨ф");
+		System.out.println("thisi i:"+title);
+		rt.opsForValue().set(title, blog);
+	}
+	
+	
 }

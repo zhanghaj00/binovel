@@ -3,8 +3,11 @@ package com.binovel.controller;
 
 import java.io.UnsupportedEncodingException;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.jta.JtaTransactionManager;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,12 +21,14 @@ public class UserController {
 
 	@Autowired
 	TestRedis redis;
+	@Autowired
+	JtaTransactionManager springTransactionManager;
 	
 	@Autowired
 	BlogDao blogDao;
 	@RequestMapping("/commonlogin") 
 	public String UserLoginC(){
-		//Ìá½»³É¹¦ºó¿ÉÒÔ×ªÏòÒ»¸ö³É¹¦½çÃæ »òÕßÓÃ redirect ·ÀÖ¹ÖØ¸´Ìá½»
+		//ï¿½á½»ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ò»ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ redirect ï¿½ï¿½Ö¹ï¿½Ø¸ï¿½ï¿½á½»
 		System.out.println("commonlogin ------");
 		return "login/login.jsp";
 		
@@ -37,11 +42,26 @@ public class UserController {
 		
 	}
 	@RequestMapping("/getblog") 
-	public String getblog(@RequestParam(required=false)String key) throws UnsupportedEncodingException{
+	public String getblog(ModelMap map ,@RequestParam(required=false)String key) throws UnsupportedEncodingException{
+		
+		//HashMap<String, Object> response = new HashMap<String, Object>();
+		map.put("bloglist", blogDao.getBlog("ï¿½ï¿½ï¿½"));
 		//System.out.println("this is key"+new String(key.getBytes("ISO8859-1"),"utf-8"));
 		//blogDao.insertBlog();
 		System.out.println(key);
 		return "blog.jsp";
 		
+	}
+	
+	@RequestMapping("/publish")
+	public String publish(){
+		System.out.println("transactionManager:"+springTransactionManager);
+		return "publicblog.jsp";
+	}
+	@RequestMapping(value="/publishsuccess")
+	public String publishsuc(String title,String postblog) throws UnsupportedEncodingException{
+		title = new String(title.getBytes("ISO-8859-1"),"UTF-8");
+		blogDao.putBlog(title, postblog);
+		return "redirect:/user/getblog.html";
 	}
 }

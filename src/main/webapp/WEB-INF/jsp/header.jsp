@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../favicon.ico">
-
+	<%response.setContentType("text/html; charset=UTF-8");  %>
     <title>Starter Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->

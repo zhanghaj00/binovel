@@ -5,15 +5,16 @@
 	<div class="row">
 
 		<div class="col-sm-8 blog-main">
-
 			<div class="blog-post">
-				<h3 class="blog-post-title">Sample blog post</h3>
+				<h3 class="blog-post-title">${bloglist.title }</h3>
 				<p class="blog-post-meta">
-					January 1, 2014 by <a href="#">Mark</a>
+					${bloglist.createTime } <a href="#">Mark</a>
 				</p>
-
+				<p>
+				${bloglist.context }
+				</p>
 			</div>
-			<!-- /.blog-post -->
+			<!--   /.blog-post -->
 			
 			<ul class="pagination pagination-sm">
 				<li><a href="#">&laquo;</a></li>
